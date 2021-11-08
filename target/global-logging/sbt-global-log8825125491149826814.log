@@ -1,0 +1,11 @@
+[debug] > Exec(kill -9, None, None)
+[error] Expected ID character
+[error] Not a valid command: kill (similar: shell)
+[error] Expected project ID
+[error] Expected configuration
+[error] Expected ':'
+[error] Expected key
+[error] Not a valid key: kill (similar: skip)
+[error] kill -9
+[error]     ^
+[debug] > Exec(idea-shell, None, None)
