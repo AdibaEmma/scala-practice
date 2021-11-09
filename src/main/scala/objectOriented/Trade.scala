@@ -23,6 +23,7 @@ object Trade {
       if (initialPrice < 0) throw new NegativePriceException(s"Error: Price cannot be negative, check price $initialPrice")
       if (quantity > 30) throw new MaxTradeQuantityException(s"Error: max quantity exceeded!, maximum quantity allowed is 30")
       if (ids.contains(id)) throw new TradeIDException(s"Error: ID $id already exists!")
+
       ids.add(id)
       new Trade(id: Int, symbol = symbol: String, quantity: Int, initialPrice: Double)
     }
