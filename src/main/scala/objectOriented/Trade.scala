@@ -5,7 +5,7 @@ import java.time.LocalDateTime.now
 import scala.collection.mutable
 
 class Trade (val ID: Int, val symbol: String, val quantity: Int, var initialPrice: Double, val tradeTimeStamp: LocalDateTime = now()) {
-  assert(initialPrice < 0, "price is not valid")
+  assert(initialPrice > 0, "price is not valid")
   val ids: mutable.Set[Integer] = mutable.Set()
   private var _price = initialPrice //initialPrice is constructor parameter
   def price: Double = _price //getter method
