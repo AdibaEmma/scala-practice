@@ -19,20 +19,13 @@ class Trade (val ID: Int, val symbol: String, val quantity: Int, var initialPric
 object Trade {
   def apply(id: Int, symbol: String, quantity: Int,initialPrice: Double): Any = {
     val ids: mutable.Set[Integer] = mutable.Set()
-    try {
-      if (initialPrice < 0) throw new NegativePriceException(s"Error: Price cannot be negative, check price $initialPrice")
-      if (quantity > 30) throw new MaxTradeQuantityException(s"Error: max quantity exceeded!, maximum quantity allowed is 30")
-      if (ids.contains(id)) throw new TradeIDException(s"Error: ID $id already exists!")
+    if (initialPrice < 0) throw new NegativePriceException(s"Error: Price cannot be negative, check price $initialPrice")
+    if (quantity < 0 || quantity > 30) throw new TradeQuantityException(s"Error: Trade quantity should be greater than 0 and 30 max")
 
-      ids.add(id)
-      new Trade(id: Int, symbol = symbol: String, quantity: Int, initialPrice: Double)
-    }
-    catch {
-      case tradeIDException: TradeIDException => println(tradeIDException.getMessage)
-      case negativePriceException: NegativePriceException => println(negativePriceException.getMessage)
-      case maxTradeQuantityException: MaxTradeQuantityException => println(maxTradeQuantityException.getMessage)
-    }
+    if (ids.contains(id)) throw new TradeIDException(s"Error: ID $id already exists!")
+    ids.add(id)
+    new Trade(id: Int, symbol = symbol: String, quantity: Int, initialPrice: Double)
   }
 }
 
-//case class TradeCase (val ID: Int, val symbol: String, val quantity: Int, var initialPrice: Double = 0.00, val tradeTimeStamp: LocalDateTime)
+//case class TradeCase (val ID: Int, val symbol: String, val quantity: Int, var initialPrice: Double = 0.00)
