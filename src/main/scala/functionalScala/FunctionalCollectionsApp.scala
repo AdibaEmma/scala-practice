@@ -16,6 +16,6 @@ object FunctionalCollectionsApp extends App {
   println(fieAndSizePair)
 //  println(fieAndSizePair.mkString("Array(", ", ", ")"))
 
-val sortedFiles: Unit = nonHiddenInCurrentDirectory.sorted foreach(c => println(c,c.length()))
+val sortedFiles: Unit = nonHiddenInCurrentDirectory foreach(c => println(c,c.length()))
   println(sortedFiles)
 }
