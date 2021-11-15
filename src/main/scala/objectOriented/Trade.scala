@@ -24,7 +24,9 @@ object Trade {
 
     if (ids.contains(id)) throw new TradeIDException(s"Error: ID $id already exists!")
     ids.add(id)
-    new Trade(id: Int, symbol = symbol: String, quantity: Int, initialPrice: Double)
+    new Trade(id: Int, symbol = symbol: String, quantity: Int, initialPrice: Double) {
+
+    }
   }
 }
 
